@@ -40,11 +40,11 @@ class PostController extends Controller
     }
 
     // SHOW SINGLE Post
-    public function show(Comment $comment, $post_id){
+    public function show($post_id){
         $post = $this->post->findOrFail($post_id);
         $comments = $this->post->latest()->findOrFail($post_id)->comments;
         $user = $this->user->findOrFail($post->user_id);
-        $commentUser = $this->post->latest()->findOrFail($post_id)->user;
+        // $commentUsers = $this->comment->latest()->findOrFail($post_id)->user;
 
         if(Auth::user()->ban == 1){
             return view('user.ban');
@@ -52,8 +52,8 @@ class PostController extends Controller
             return view('posts.show')
             ->with('post', $post)
             ->with('user', $user)
-            ->with('comments', $comments)
-            ->with('commentUser', $commentUser);
+            ->with('comments', $comments);
+            // ->with('commentUsers', $commentUsers);
         }
     }
 

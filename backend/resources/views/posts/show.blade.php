@@ -37,6 +37,7 @@
             <form action="{{ route('comment.store') }}" class="row row-cols-md-auto mt-3">
                 @csrf
                 <input type="hidden" name="post_id" value="{{ $post->id }}">
+                <input type="hidden" name="name" value="{{ Auth::user()->name }}">
 
                 <label for="comment" class="form-label text-center">{{__('Comment')}}</label>
                 <div class="input-group">
@@ -51,16 +52,7 @@
                         <hr>
                         <h5>{{ $comment->comment }}</h5>
                         
-                        <p><strong>{{ $commentUser->name }}</strong> &middot; {{ $comment->created_at->format('Y/m/d') }}</p>
-                        @if ($comment->user_id == Auth::user()->id)
-                            <form action="{{ route('comment.destroy', $comment->id) }}" method="post">
-                                @csrf
-                                @method('DELETE')
-                                <button class="btn btn-danger mt-2"><i class="fa-solid fa-trash"></i> Delete</button>
-                            </form> 
-                            <hr>       
-                        @endif
-
+                        <p><strong>{{ $comment->name }}</strong> &middot; {{ $comment->created_at->format('Y/m/d') }}</p>
                     @endforeach
                 @else
                     <p>No Comments Found</p>

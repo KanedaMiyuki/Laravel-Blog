@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <x-card>
+<div class="container">
+    <x-card class="w-75">
         <div class="card-header">
             <h1 class="fw-bold text-center text-white">Check Inquiries</h1>
         </div>
@@ -45,5 +46,5 @@
           </table>
         </div>
     </x-card>
-    
+</div>
 @endsection

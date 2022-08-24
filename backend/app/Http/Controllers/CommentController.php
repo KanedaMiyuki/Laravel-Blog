@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
-    private $user;
+    private $comment;
 
     public function __construct(Comment $comment){
         $this->comment = $comment;
@@ -20,6 +20,7 @@ class CommentController extends Controller
             'comment' => 'required|min:1|max:280'
         ]);
         $this->comment->user_id = Auth::user()->id;
+        $this->comment->name = $request->name;
         $this->comment->comment = $request->comment;
         $this->comment->post_id = $request->post_id;
 
@@ -28,12 +29,5 @@ class CommentController extends Controller
         return redirect()
             ->back()
             ->with('message', 'Comment Added Successfully');
-    }
-
-    public function destroy($comment_id){
-        $comment = $this->comment->findOrFail($comment_id);
-
-        $this->comment->destroy($comment_id);
-        return redirect()->route('posts.myPosts')->with('message', 'Your Comment Deleted Successfully');
     }
 }

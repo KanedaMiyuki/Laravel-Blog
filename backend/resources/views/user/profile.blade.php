@@ -2,20 +2,20 @@
 
 @section('content')
    <div class="container mt-3">
-      <div class="card w-50 mx-auto bg-dark text-white">
+      <div class="card w-75 mx-auto bg-dark text-white">
         <div class="card-header">
           <h1 class="fw-bold text-center text-white">Profile</h1>
         </div>
 
         <div class="card-body">
           <div class="row">
-                <h4 class="col-md-5 text-md-end pt-3">{{ __('Name') }}</h4>
-                <h2 class="fw-bold col-md-7 pt-2">{{ $user_detail->name }}</h2>
+                <h4 class="col-md-3 offset-3 text-end pt-3">{{ __('Name : ') }}</h4>
+                <h2 class="fw-bold col-md-6 pt-2">{{ $user_detail->name }}</h2>
           </div>
 
           <div class="row mt-2">
-                <h3 class="col-md-3 text-md-end offset-2">{{ __('Email') }}</h3>
-                <h3 class="col-md-7">{{ $user_detail->email }}</h3>
+                <h3 class="col-md-3 offset-3 text-end">{{ __('Email : ') }}</h3>
+                <h3 class="col-md-6">{{ $user_detail->email }}</h3>
           </div>
 
           </div>

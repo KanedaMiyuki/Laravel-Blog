@@ -3,7 +3,7 @@
 @section('content')
     <x-card>
         <div class="card-header">
-            <h1 class="fw-bold text-center text-white">ACcount Administration</h1>
+            <h1 class="fw-bold text-center text-white">Account Administration</h1>
         </div>
         <div class="card-body bg-light">
           <form action="/addAdmin" class="row row-cols-md-auto mt-3">
