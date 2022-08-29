@@ -17,14 +17,11 @@ class UserController extends Controller
     }
     
     public function show(){
-        if(Auth::user()->ban == 1){
-            return view('user.ban');
-        } else{
-            $user_detail = $this->user->findOrFail(Auth::user()->id);
+        $user_detail = $this->user->findOrFail(Auth::user()->id);
 
-            return view('user.profile', ['inquiries' => auth()->user()->inquiries()->get()])
-                ->with('user_detail', $user_detail);
-        }
+        return view('user.profile', ['inquiries' => auth()->user()->inquiries()->get()])
+            ->with('user_detail', $user_detail);
+        
     }
 
     public function edit(){

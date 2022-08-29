@@ -13,10 +13,10 @@
           
           <div class="card-header">
             <p class="display-4">{{ $post->title }}</p>
+            <p>{{ $post->updated_at->format('Y/m/d') }}</p>
           </div>
           <div class="card-body">
                 <h3>{!! \Michelf\Markdown::defaultTransform($post->body) !!}</h3>
-
           </div>
           <div class="card-body">
             <x-listing-tags :tagsCsv="$post->tags" />

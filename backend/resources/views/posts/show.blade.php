@@ -52,7 +52,15 @@
                         <hr>
                         <h5>{{ $comment->comment }}</h5>
                         
-                        <p><strong>{{ $comment->name }}</strong> &middot; {{ $comment->created_at->format('Y/m/d') }}</p>
+                        <p><strong>{{ $comment->name }}</strong> &middot; {{ $comment->created_at->format('Y/m/d') }}
+                        </p>
+                        @if ($comment->user_id == Auth::user()->id)
+                            <form action="{{ route('comment.destroy', $comment->id) }}" method="post">
+                                @csrf
+                                @method('delete')
+                                <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure to delete?')">Delete</button>
+                            </form>
+                        @endif
                     @endforeach
                 @else
                     <p>No Comments Found</p>

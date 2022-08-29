@@ -66,6 +66,9 @@ Route::group(['middleware' => 'auth'], function(){
     Route::name('comment.')->group(function(){
        //Add Comment
        Route::get('/store', [CommentController::class, 'store'])->name('store'); 
+       //Delete Comment
+       Route::delete('/deleteComment/{comment_id}', [CommentController::class, 'destroy'])->name('destroy');
+
        
     });
 

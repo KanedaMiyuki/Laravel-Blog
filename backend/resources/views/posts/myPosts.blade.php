@@ -10,6 +10,7 @@
     <tr>
       <th>#</th>
       <th>Title</th>
+      <th>Date</th>
       <th></th>
       <th></th>
     </tr>
@@ -26,6 +27,9 @@
                   {{ $post->title }}
               </a>
           </td>
+          <td class="text-center pt-4">
+            {{ $post->updated_at->format('Y/m/d')}}
+          </td>
           <td class="text-center">
               <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-info mt-2"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
           </td>
@@ -33,7 +37,7 @@
               <form action="{{ route('posts.destroy', $post->id) }}" method="post">
                 @csrf
                 @method('DELETE')
-                <button class="btn btn-danger mt-2" type="submit"><i class="fa-solid fa-trash"></i> Delete</button>
+                <button class="btn btn-danger mt-2" type="submit"onclick="return confirm('Are you sure to delete No: {{ $post->id }}?')"><i class="fa-solid fa-trash"></i> Delete</button>
             </form>
           </td>
       </tr>

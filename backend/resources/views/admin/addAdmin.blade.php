@@ -24,7 +24,6 @@
               <th>Name</th>
               <th>Email</th>
               <th></th>
-              <th></th>
             </thead>
             
               @foreach ($users as $user)
@@ -32,7 +31,7 @@
                 <td>{{ $user->id }}</td>
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
-                <td>{{ $user->usertype }}</td>
+                {{-- <td>{{ $user->usertype }}</td> --}}
                 @if ($user->usertype == 0)
                     <form action="{{ route('admin.changeUsertype1', $user->id) }}" method="POST">
                       @csrf

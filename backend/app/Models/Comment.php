@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Comment extends Model
 {
     use HasFactory;
-    
 
+    
     //Relationship To Post
     public function post(){
         return $this->belongsTo(Post::class);
