@@ -23,7 +23,7 @@
               <h4 class="mt-3">{{ $post->id }}</h4>              
           </td>
           <td class="fs-1 fw-bold text-center">
-              <a href="/posts/{{ $post->id }}" class="text-decoration-none text-dark">
+              <a href="/show/{{ $post->id }}" class="text-decoration-none text-dark">
                   {{ $post->title }}
               </a>
           </td>
